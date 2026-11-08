@@ -1,0 +1,31 @@
+name: Compilacion de GestorNotas
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el codigo del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Comprobar version de Java
+        run: java -version
+
+      - name: Crear carpeta de compilacion
+        run: mkdir -p out
+
+      - name: Compilar el proyecto
+        run: javac -d out src/gestornotas/*.java

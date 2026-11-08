@@ -26,7 +26,7 @@ public class Main {
 
         double media = gestor.calcularMedia(nota1, nota2, nota3);
         gestor.mostrarResultado(media);
-
+iggjghj
         teclado.close();
     }
 }
